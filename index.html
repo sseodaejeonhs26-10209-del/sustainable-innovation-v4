@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#184c3b">
+  <meta name="description" content="공정무역·유기농 공식 정보가 있는 실제 식품 7개를 찾아보고 장보기 목록에 담는 초록장바구니 버전4입니다.">
+  <title>초록장바구니 버전4 · 오늘의 작은 선택</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#"><span class="brand-icon" aria-hidden="true">♧</span><span>초록장바구니 <small class="version-badge">버전4</small></span></a>
+    <nav aria-label="주 메뉴"><a href="#discover">제품 찾기</a><a href="#guide">인증 알아보기</a><a href="#shopping">내 장바구니 <span id="nav-count">0</span></a></nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">오늘의 장보기, 더 나은 선택</p>
+        <h1 id="hero-title">우리 집 장바구니에<br><span>지속가능함을 담아요.</span></h1>
+        <p>사려는 음식을 검색해 보세요.<br>사람과 자연을 생각하는 선택, 인증부터 쉽게 알려드려요.</p>
+        <a class="hero-link" href="#discover">살 음식 찾아보기</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit"></div><span class="art-leaf leaf-one">✦</span><span class="art-leaf leaf-two">✧</span>
+        <div class="grocery banana">🍌</div><div class="grocery milk">🥛</div><div class="grocery cocoa">🍫</div>
+        <div class="basket"><span>GOOD CHOICES</span><div class="basket-weave"></div></div>
+        <div class="art-note">작은 선택이 만드는 변화 🌱</div>
+      </div>
+    </section>
+    <div class="demo-note"><span class="demo-label">실제 제품 7개</span>브랜드 공식 제품 정보를 바탕으로 골랐어요. 해외 판매 제품을 포함하며, 인증 종류와 적용 범위는 각 제품의 공식 링크에서 확인할 수 있어요. <span>정보 확인: 2026.11.26</span></div>
+    <div class="workspace">
+      <section id="discover" class="discover" aria-labelledby="discover-title">
+        <div class="section-heading"><div><p class="eyebrow">FIND YOUR FOOD</p><h2 id="discover-title">무엇을 살 예정인가요?</h2></div></div>
+        <form id="search-form" novalidate>
+          <label class="sr-only" for="food-search">살 음식 이름</label>
+          <div class="search-box"><span aria-hidden="true">⌕</span><input id="food-search" type="search" placeholder="초콜릿, 커피, 쌀…" autocomplete="off" maxlength="100" aria-describedby="search-help"><button class="primary" type="submit">검색</button></div>
+          <p id="search-help" class="help">여러 음식을 쉼표로 나누어 한 번에 검색할 수 있어요.</p>
+        </form>
+        <div class="chips" id="food-chips" aria-label="음식 바로 검색"></div>
+        <div class="results-heading"><h3 id="result-title">지속가능한 선택, 실제 제품 7개</h3><span id="result-count"></span></div>
+        <p id="search-message" class="search-message" role="status" hidden></p>
+        <div id="results" class="product-grid"></div>
+      </section>
+      <aside id="shopping" class="shopping" aria-labelledby="shopping-title">
+        <div class="shopping-top"><span class="bag-icon" aria-hidden="true">♧</span><h2 id="shopping-title">내 장바구니</h2><span id="list-count" class="count">0</span></div>
+        <p class="shopping-help">마음에 드는 제품을 담아두세요.</p>
+        <div id="shopping-list"></div>
+        <div class="shopping-bottom"><p id="list-progress" aria-live="polite"></p><button id="clear-done" class="text-button" type="button" hidden>구매한 제품 지우기</button></div>
+        <p class="storage-note" id="storage-note">이 브라우저에 자동으로 저장돼요.</p>
+      </aside>
+    </div>
+    <section id="guide" class="guide" aria-labelledby="guide-title">
+      <div class="section-heading"><div><p class="eyebrow">KNOW YOUR LABEL</p><h2 id="guide-title">작은 인증 표시, 어떤 뜻일까요?</h2></div><p>이름을 누르면 조금 더 자세히 알려드려요.</p></div>
+      <div id="guide-cards" class="guide-grid"></div>
+      <div class="cert-comparison" aria-labelledby="comparison-title">
+        <h3 id="comparison-title">인증, 한눈에 비교해요</h3>
+        <p class="help">더 좋은 인증을 고르기보다, 내가 확인하고 싶은 기준을 살펴보세요.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="인증 비교표, 작은 화면에서는 좌우로 스크롤할 수 있어요">
+          <table>
+            <caption class="sr-only">세 가지 인증의 주요 기준과 확인할 점</caption>
+            <thead><tr><th scope="col">인증</th><th scope="col">주로 살펴보는 기준</th><th scope="col">구매 전 확인할 점</th><th scope="col">자세히</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">공정무역</th><td>생산자의 거래 조건, 노동·환경 기준</td><td>유기농을 뜻하지는 않아요. 어떤 원료가 인증 대상인지 확인해요.</td><td><button class="comparison-detail" data-cert="fairtrade" type="button" aria-label="공정무역 비교표 설명 보기">설명 보기</button></td></tr>
+              <tr><th scope="row">유기농</th><td>유기 재배 방식과 사용 자재 등</td><td>가공식품에는 별도 기준이 있어요. 탄소배출·포장까지 모두 평가하지는 않아요.</td><td><button class="comparison-detail" data-cert="organic" type="button" aria-label="유기농 비교표 설명 보기">설명 보기</button></td></tr>
+              <tr><th scope="row">레인포레스트 얼라이언스</th><td>숲·생태계 보호, 농업과 노동자의 인권</td><td>제품 전체가 아닌 특정 원료에 적용될 수 있어요.</td><td><button class="comparison-detail" data-cert="rainforest" type="button" aria-label="레인포레스트 얼라이언스 비교표 설명 보기">설명 보기</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="help">각 설명의 ‘공식 기관 안내 보기’에서 출처와 기준을 확인할 수 있어요.</p>
+      </div>
+      <p class="guide-footnote">인증마다 적용 범위가 달라요. 실제 구매할 때는 포장에 적힌 인증 대상 원료와 인증번호도 함께 확인해 주세요. 아래 기호는 설명을 위한 그림이며 공식 인증 로고가 아닙니다.</p>
+    </section>
+    <section class="sdg"><span class="sdg-number">12</span><div><strong>책임 있는 생산과 소비</strong><p>오늘의 작은 선택으로 지속가능한 일상을 만들어가요.</p></div><span class="sdg-label">UN SDGs</span></section>
+  </main>
+  <footer><a class="brand" href="#">♧ 초록장바구니 버전4</a><p>기획 윤정인 · 버전4</p><p>지속가능한 장보기를 연습하는 작은 시작</p></footer>
+  <a class="mobile-cart" id="mobile-cart" href="#shopping"><span>내 장바구니 보기</span><span><span id="mobile-cart-count">0</span>개</span></a>
+  <dialog id="cert-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span id="dialog-symbol" class="cert-symbol" aria-hidden="true"></span><button id="close-dialog" class="icon-button" aria-label="설명 닫기" type="button">×</button></div><p class="eyebrow">인증 쉽게 이해하기</p><h2 id="dialog-title"></h2><p id="dialog-description"></p><div class="dialog-criteria"><strong>어떤 기준을 살펴보나요?</strong><p id="dialog-criteria"></p></div><p id="dialog-note" class="help"></p><a id="dialog-source" target="_blank" rel="noopener noreferrer">공식 기관 안내 보기 (새 창)</a></dialog>
+  <div id="toast" role="status" class="toast" hidden></div>
+</body>
+</html>
